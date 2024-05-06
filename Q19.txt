@@ -1,0 +1,21 @@
+Q19
+
+//Write a code to turn on an LED when the proximity sensor senses an obstacle and vice-versa.
+
+void setup()
+{
+  pinMode(A1,INPUT);
+  pinMode(13,OUTPUT);
+}
+void loop()
+{
+  int sv=analogRead(A1);
+  if(sv<500)
+  {
+    digitalWrite(13,HIGH);
+  }
+  else
+  {
+    digitalWrite(13,LOW);
+  }
+}

@@ -1,0 +1,15 @@
+Q10
+
+//Connect and read a potentiometer in pin. A2 and display the read value in the serial monitor.
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int pv=analogRead(A2);
+  Serial.println(pv);
+  delay(200);
+}

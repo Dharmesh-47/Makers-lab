@@ -1,0 +1,11 @@
+Q12
+
+//Display a text in LCD.
+
+#include <LiquidCrystal.h>
+LiquidCrystal lcd_1(12, 13, 8, 4, 3, 2);
+
+void setup()
+{
+  lcd_1.begin(16, 2); 
+}

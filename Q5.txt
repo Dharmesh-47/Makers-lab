@@ -1,0 +1,25 @@
+Q5
+
+//Blink RGB LEDs (3,5 and 6) alternatively using analogWrite()
+
+void setup()
+{
+ 
+}
+
+void loop()
+{
+  analogWrite(3, 255);
+  delay(1000); 
+  analogWrite(3, 0);
+  delay(1000);
+  analogWrite(5, 255);
+  delay(1000); 
+  analogWrite(5, 0);
+  delay(1000);
+  analogWrite(6, 255);
+  delay(1000); 
+  analogWrite(6, 0);
+  delay(1000);
+  
+}

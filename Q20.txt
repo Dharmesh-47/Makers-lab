@@ -1,0 +1,45 @@
+Q20
+
+//Write a code to stop a servo motor (which is already sweeping between its maximum and
+minimum range) when the proximity sensor senses an obstacle and continue sweeping when
+the obstacle is removed.
+
+#include <Servo.h>
+
+int servoPin=5;       
+int sensorPin=A1;     
+int min=0;       
+int maxAngle=180;     
+int step=2;       
+
+Servo servo;
+
+void setup() {
+  servo.attach(servoPin);     
+  pinMode(sensorPin, INPUT);  
+}
+
+void loop() {
+  if (digitalRead(sensorPin) == LOW) {
+    stopSweeping();
+  } 
+  else {
+    sweepServo();
+  }
+}
+
+void stopSweeping() {
+  int currentPos = servo.read();
+  servo.write(currentPos);
+}
+
+void sweepServo() {
+  for (int angle=min;angle<=max;angle+=step) {
+    servo.write(angle);    
+    delay(15);             
+  }
+  for (int angle=max;angle>=min;angle-=step) {
+    servo.write(angle);    
+    delay(15);             
+  }
+}

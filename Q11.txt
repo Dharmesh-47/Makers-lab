@@ -1,0 +1,17 @@
+Q11
+
+//Vary the intensity of R in RGB LED in pin. 3 using a potentiometer in pin A2.
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int pv=analogRead(A2);
+  int br = map(pv, 0, 1023, 0, 255);
+  analogWrite(3,br);
+  delay(200);
+}
+

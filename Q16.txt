@@ -1,0 +1,15 @@
+Q16
+
+//Control the position of the small servo motor using the potentiometer.
+
+#include <Servo.h>
+Servo s;
+void setup() {
+  s.attach(5);
+}
+void loop() {
+  int p=analogRead(A2); 
+  int a=map(p,0,1023,0,180);
+  s.write(a); 
+  delay(15);
+}

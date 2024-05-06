@@ -1,0 +1,27 @@
+Q8
+
+//Combine various intensities of R, G and B and get different colours (use nested for loops with
+a small delay)
+
+void setup()
+{
+ 
+}
+
+void loop()
+{
+  for(int i=0;i<=255;i++)
+  {
+    analogWrite(3,i);
+    for(int j=0;j<=i;j++)
+    {
+      analogWrite(4,j);
+      for(int k=0;k<=j;k++)
+      {
+        analogWrite(5,k);
+      }
+    }
+  }
+  delay(1000);
+  
+}

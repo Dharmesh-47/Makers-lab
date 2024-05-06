@@ -1,0 +1,23 @@
+Q13
+
+//Read the LDR connected to pin A3 and display the read value on the LCD and serial monitor.
+
+#include <LiquidCrystal.h>
+LiquidCrystal lcd_1(12, 13, 8, 4, 3, 2);
+
+void setup()
+{
+  Serial.begin(9600);
+  lcd_1.begin(16, 2); 
+}
+
+void loop()
+{
+  int p=analogRead(A3);
+  lcd_1.setCursor(0, 1);
+  lcd_1.print(p);
+  delay(1000); 
+  lcd_1.clear();
+  Serial.println(p);
+  delay(1000);
+}

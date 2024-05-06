@@ -1,0 +1,23 @@
+Q3
+
+//Read the switch connected to pin 7 and use the LED in pin 13 to indicate the status of the
+switch.
+
+void setup()
+{
+  pinMode(7, INPUT_PULLUP);
+  pinMode(13, OUTPUT);
+}
+
+void loop()
+{
+  if(digitalRead(7)== HIGH)
+  {
+    digitalWrite(13,LOW);
+  }
+  else
+  {
+    digitalWrite(13,HIGH);
+  }
+}
+

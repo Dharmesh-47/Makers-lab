@@ -1,0 +1,33 @@
+Q17
+
+//Use switch 7 to rotate the small servo motor in the clockwise direction and switch 8 for the
+counterclockwise direction from the initial position of the servo (90 deg). Every single switch
+press and release event should correspond to a 2-degree rotation.
+
+#include <Servo.h>
+Servo s;
+int min=0;
+int max=180;
+int now=90;
+int step=2;
+void setup()
+{
+  s.attach(5);
+  pinMode(scw,INPUT_PULLUP);
+  pinMode(sccw,INPUT_PULLUP);
+}
+void loop()
+{
+  if(digitalRead(7)==LOW){
+    now+=step;
+    now=constrain(now,min,max);
+    s.write(now);
+    delay(100);
+  }
+  if(digitalRead(8)==LOW){
+    now-=step;
+    now=constrain(now,min,max);
+    s.write(now);
+    delay(100);
+  }
+}

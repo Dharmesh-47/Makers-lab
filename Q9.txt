@@ -1,0 +1,14 @@
+Q9
+
+//Print a text on the serial monitor.
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  Serial.println("Arduino programming");
+  delay(1000);
+}

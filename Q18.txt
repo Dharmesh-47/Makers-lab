@@ -1,0 +1,14 @@
+Q18
+
+//Test the proximity sensor provided to you.
+
+void setup()
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  int s=analogRead(A1);
+  Serial.println(s);
+  delay(100);
+}

@@ -1,0 +1,36 @@
+Q14
+
+//Set a threshold on the value read from LDR and accordingly turn on/off an LED. Also, display
+the value of LDR and status of LED in different rows of LCD and serial monitor.
+
+#include <LiquidCrystal.h>
+LiquidCrystal lcd_1(12, 13, 8, 4, 3, 2);
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(13,OUTPUT);
+  lcd_1.begin(16, 2); 
+}
+
+void loop()
+{
+  
+  int p=analogRead(A3);
+  Serial.println(p);
+  lcd_1.setCursor(0, 0);
+  lcd_1.print(p);
+  if(p>350)
+  {
+    digitalWrite(13,HIGH);
+  }
+  else
+  {
+    digitalWrite(13,LOW);
+  }
+
+  delay(1000);
+ 
+  
+}
+

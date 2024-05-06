@@ -1,0 +1,47 @@
+Q7
+
+//Vary the intensity of R, G and B individually in RGB LED connected in pins 3, 5 and 6 (PWM
+pins)
+
+void setup()
+{
+ 
+}
+
+void loop()
+{
+  for(int i=0;i<=255;i++)
+  {
+    analogWrite(3,i);
+    delay(25);
+  }
+  for(int i=255;i>=0;i--)
+  {
+    analogWrite(3,i);
+    delay(25);
+  }
+  delay(1000);
+  for(int i=0;i<=255;i++)
+  {
+    analogWrite(5,i);
+    delay(25);
+  }
+  for(int i=255;i>=0;i--)
+  {
+    analogWrite(3,i);
+    delay(25);
+  }
+  delay(1000);
+  for(int i=0;i<=255;i++)
+  {
+    analogWrite(6,i);
+    delay(25);
+  }
+  for(int i=255;i>=0;i--)
+  {
+    analogWrite(3,i);
+    delay(25);
+  }
+  delay(1000);
+  
+}

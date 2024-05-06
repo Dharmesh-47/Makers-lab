@@ -1,0 +1,68 @@
+Project Code:
+
+#define enA 10
+#define enB 11
+
+
+void setup() {
+  pinMode(enA, OUTPUT);
+  pinMode(enB, OUTPUT);
+
+  pinMode(12,OUTPUT);
+  pinMode(13,OUTPUT);
+  pinMode(A2, INPUT);//right
+  pinMode(A1, INPUT);//left
+  // put your setup code here, to run once:
+
+}
+
+
+void loop() {
+  int rightSensorVal = digitalRead(A2);
+  int leftSensorVal = digitalRead(A1);
+
+  // Line following logic
+  if (rightSensorVal == HIGH && leftSensorVal == HIGH) { // Both sensors on line (center)
+    moveForward();
+  } else if (rightSensorVal == LOW && leftSensorVal == HIGH) { // Right sensor off line (turn right)
+    turnRight();
+  } else if (rightSensorVal == HIGH && leftSensorVal == LOW) { // Left sensor off line (turn left)
+    turnLeft();
+  } else { // Both sensors off line (stop or adjust)
+    stopMotors();
+    // You can add optional logic here, like a slight turn or backup
+  }
+}
+
+void moveForward() {
+  analogWrite(enA, 255); // Set motor speed (adjust as needed)
+  analogWrite(enB, 255); // Set motor speed
+
+  digitalWrite(12, LOW);
+  digitalWrite(13, LOW);
+}
+
+void turnRight() {
+  analogWrite(enA, 0); // Set motor speed
+  analogWrite(enB, 255); // Set motor speed (adjust for sharper turn if needed)
+
+  digitalWrite(12, LOW);
+  digitalWrite(13, LOW);
+}
+
+void turnLeft() {
+  analogWrite(enA, 255); // Set motor speed
+  analogWrite(enB, 0); // Set motor speed (adjust for sharper turn if needed)
+
+  digitalWrite(12, LOW);
+  digitalWrite(13, LOW);
+}
+
+void stopMotors() {
+  analogWrite(enA, 255); // Set motor speed
+  analogWrite(enB, 255);
+
+  digitalWrite(12, LOW);
+  digitalWrite(13, LOW);
+
+}
